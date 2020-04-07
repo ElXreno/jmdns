@@ -7,10 +7,6 @@ License:        ASL 2.0 and LGPLv2+
 URL:            https://github.com/jmdns/jmdns
 Source0:        %{url}/archive/%{name}-%{version}/%{name}-%{version}.tar.gz
 
-# Javadoc temporary disabled while upsteam not fixed javadoc generation
-# https://github.com/jmdns/jmdns/issues/199
-Patch0:         0001-disable-javadoc.patch
-
 BuildRequires:  maven-local
 BuildRequires:  mvn(org.apache.felix:maven-bundle-plugin)
 BuildRequires:  mvn(org.slf4j:slf4j-api)
@@ -30,7 +26,10 @@ with Apple's Bonjour.
 # Remove duplicate jar execution
 %pom_xpath_remove "pom:plugin[pom:artifactId='maven-jar-plugin']/pom:executions"
 
-%mvn_alias : "org.jenkins-ci:jmdns"
+# Javadoc temporary disabled while upsteam not fix javadoc generation
+# https://github.com/jmdns/jmdns/issues/199
+%pom_xpath_remove "pom:plugin[pom:artifactId='maven-javadoc-plugin']"
+%pom_xpath_remove "pom:properties[pom:javadoc.opts]"
 
 
 %build
