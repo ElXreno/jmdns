@@ -3,7 +3,7 @@ Version:        3.5.5
 Release:        1%{?dist}
 Summary:        Java implementation of multi-cast DNS
 
-License:        ASL 2.0 and LGPLv2+
+License:        ASL 2.0
 URL:            https://github.com/jmdns/jmdns
 Source0:        %{url}/archive/%{name}-%{version}/%{name}-%{version}.tar.gz
 
