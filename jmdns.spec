@@ -31,6 +31,8 @@ with Apple's Bonjour.
 %pom_xpath_remove "pom:plugin[pom:artifactId='maven-javadoc-plugin']"
 %pom_xpath_remove "pom:properties[pom:javadoc.opts]"
 
+chmod -x README.md
+
 
 %build
 # Tests are disabled because they try to use network
